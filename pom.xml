@@ -141,6 +141,16 @@
 			<artifactId>bcprov-jdk15on</artifactId>
 			<version>1.67</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-jms-client</artifactId>
+			<version>2.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+			<version>5.16.0</version>
+		</dependency>
 	</dependencies>
 	<scm>
 		<url>git:git@github.com:siemens/LightweightCmpRa.git</url>

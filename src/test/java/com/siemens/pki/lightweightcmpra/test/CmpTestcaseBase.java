@@ -70,14 +70,6 @@ public class CmpTestcaseBase {
     protected void initTestbed(final String nameOfRaConfigFile,
             final String cmpClientUrl)
             throws Exception, GeneralSecurityException, InterruptedException {
-        if (cmpClientUrl != null) {
-            eeSignatureBasedCmpClient = startedEeClients.get(cmpClientUrl);
-            if (eeSignatureBasedCmpClient == null) {
-                eeSignatureBasedCmpClient =
-                        TestUtils.createCmpClient(cmpClientUrl);
-                startedEeClients.put(cmpClientUrl, eeSignatureBasedCmpClient);
-            }
-        }
         if (!startedRAs.contains(nameOfRaConfigFile)) {
             final Thread raMainTread = new Thread(lraThreadGroup,
                     () -> RA.init(nameOfRaConfigFile),
@@ -85,6 +77,14 @@ public class CmpTestcaseBase {
             raMainTread.start();
             raMainTread.join();
             startedRAs.add(nameOfRaConfigFile);
+        }
+        if (cmpClientUrl != null) {
+            eeSignatureBasedCmpClient = startedEeClients.get(cmpClientUrl);
+            if (eeSignatureBasedCmpClient == null) {
+                eeSignatureBasedCmpClient =
+                        TestUtils.createCmpClient(cmpClientUrl);
+                startedEeClients.put(cmpClientUrl, eeSignatureBasedCmpClient);
+            }
         }
     }
 

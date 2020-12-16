@@ -19,13 +19,13 @@ package com.siemens.pki.lightweightcmpra.test;
 
 import org.junit.Before;
 
-public class OnlineEnrollmentCoapTestcaseBase
+public class OnlineEnrollmentMqttTestcaseBase
         extends OnlineEnrollmentTestcaseBase {
 
     @Before
     public void setUp() throws Exception {
 
-        initTestbed("OnlineEnrollmentTestConfigWithCoap.xml",
-                "coap://localhost/onlinelra");
+        initTestbed("OnlineEnrollmentTestConfigWithMqtt.xml",
+                "tcp://localhost:61616,client.messages");
     }
 }
